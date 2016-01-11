@@ -8,19 +8,20 @@
 
 import UIKit
 import AFNetworking
+import SWActivityIndicatorView
 
 class MoviesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var moviesTimeline: UICollectionView!
     
     var movies: [NSDictionary]?
+    var loader: SWActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.moviesTimeline.delegate = self
         self.moviesTimeline.dataSource = self
-        
         self.getMovies()
     }
 
@@ -45,7 +46,7 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         cell.Image.setImageWithURL(imageURL!)
         cell.Title.text = title
-        
+        cell.About.text = movie["overview"] as? String
         return cell
     }
     
@@ -58,6 +59,7 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     func getMovies() {
+    
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
         let url = NSURL(string:"https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")
         let request = NSURLRequest(URL: url!)
@@ -75,11 +77,19 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
                             print("response: \(responseDictionary)")
                             self.movies = responseDictionary["results"] as? [NSDictionary]
                             self.moviesTimeline.reloadData()
+                            
                     }
                 }
         });
         task.resume()
     }
-
+    
+    func startLoader() {
+        //init and startLoader
+        loader = SWActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        self.view.addSubview(loader)
+        loader.hidesWhenStopped = true
+        loader.startAnimating()
+    }
 }
 

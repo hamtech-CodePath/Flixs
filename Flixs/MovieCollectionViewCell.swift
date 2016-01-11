@@ -12,4 +12,5 @@ class MovieCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var Image: UIImageView!
     @IBOutlet weak var Title: UILabel!
+    @IBOutlet weak var About: UILabel!
 }
