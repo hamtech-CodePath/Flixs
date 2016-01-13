@@ -29,7 +29,7 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
         refresh.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
         self.moviesTimeline.insertSubview(refresh, atIndex: 0)
         
-       // self.startLoader()
+        self.startLoader()
         self.getMovies()
     }
 
@@ -85,13 +85,16 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
                             print("response: \(responseDictionary)")
                             self.movies = responseDictionary["results"] as? [NSDictionary]
                             self.moviesTimeline.reloadData()
+                            self.delay(5, closure: { () -> () in
+                                self.loader?.stopAnimating()
+                            })
                             
                     }
                 }
-                
+                    
                 else if (error != nil) {
                     //make warning message
-                    print("No Internet")
+                    print("API call not working")
                 }
         });
         task.resume()
@@ -99,7 +102,8 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func startLoader() {
         //init and startLoader
-        loader = SWActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        loader = SWActivityIndicatorView(frame: CGRect(x: 135, y: 260, width: 50, height: 50))
+
         self.view.addSubview(loader!)
         loader!.hidesWhenStopped = true
         loader!.startAnimating()
