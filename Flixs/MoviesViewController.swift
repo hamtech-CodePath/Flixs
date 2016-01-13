@@ -15,13 +15,21 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var moviesTimeline: UICollectionView!
     
     var movies: [NSDictionary]?
-    var loader: SWActivityIndicatorView!
+    var loader: SWActivityIndicatorView?
+    var refresh: UIRefreshControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.moviesTimeline.delegate = self
         self.moviesTimeline.dataSource = self
+        
+        //setup refresh to reload
+        refresh = UIRefreshControl()
+        refresh.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
+        self.moviesTimeline.insertSubview(refresh, atIndex: 0)
+        
+       // self.startLoader()
         self.getMovies()
     }
 
@@ -59,7 +67,7 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     func getMovies() {
-    
+        //self.loader.startAnimating()
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
         let url = NSURL(string:"https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")
         let request = NSURLRequest(URL: url!)
@@ -80,6 +88,11 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
                             
                     }
                 }
+                
+                else if (error != nil) {
+                    //make warning message
+                    print("No Internet")
+                }
         });
         task.resume()
     }
@@ -87,9 +100,25 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
     func startLoader() {
         //init and startLoader
         loader = SWActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        self.view.addSubview(loader)
-        loader.hidesWhenStopped = true
-        loader.startAnimating()
+        self.view.addSubview(loader!)
+        loader!.hidesWhenStopped = true
+        loader!.startAnimating()
+    }
+    
+    //UIRefreshControl Methods
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
+    
+    func onRefresh() {
+        delay(2, closure: {
+            self.refresh.endRefreshing()
+        })
     }
 }
 
