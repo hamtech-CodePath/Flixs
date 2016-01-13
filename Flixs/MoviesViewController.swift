@@ -124,5 +124,20 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
             self.refresh.endRefreshing()
         })
     }
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let cell = sender as! MovieCollectionViewCell //cast sender >> UICollectionCell
+        let index = moviesTimeline.indexPathForCell(cell) //GetIndex that was selected
+        let selectedMovie = movies![index!.row] // getMovie from dictionary
+        
+        let detail = segue.destinationViewController as! DetailViewController
+        detail.movie = selectedMovie
+        
+        
+        
+    }
 }
 
