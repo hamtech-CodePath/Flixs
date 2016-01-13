@@ -45,14 +45,13 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         let movie = movies![indexPath.row]
         let title = movie["title"] as! String
-        let posterPath = movie["poster_path"] as! String
-        
-        let baseURL = "http://image.tmdb.org/t/p/w500"
-        
-        let imageURL = NSURL(string: baseURL + posterPath)
-        
-        
-        cell.Image.setImageWithURL(imageURL!)
+        if let posterPath = movie["poster_path"] as? String {
+            
+            let baseURL = "http://image.tmdb.org/t/p/w500"
+            let imageURL = NSURL(string: baseURL + posterPath)
+            cell.Image.setImageWithURL(imageURL!)
+        }
+
         cell.Title.text = title
         cell.About.text = movie["overview"] as? String
         return cell
