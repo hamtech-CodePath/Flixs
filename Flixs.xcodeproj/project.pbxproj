@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4741C60F1C487A7600AAE4E2 /* TopRatedMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4741C60E1C487A7600AAE4E2 /* TopRatedMoviesViewController.swift */; };
 		478305F91C406F8B00F03E11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478305F81C406F8B00F03E11 /* AppDelegate.swift */; };
 		478305FB1C406F8B00F03E11 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478305FA1C406F8B00F03E11 /* MoviesViewController.swift */; };
 		478305FE1C406F8B00F03E11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 478305FC1C406F8B00F03E11 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		1F1B6F24B8B0CB3B648F9AD4 /* Pods_Flixs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flixs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4741C60E1C487A7600AAE4E2 /* TopRatedMoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopRatedMoviesViewController.swift; sourceTree = "<group>"; };
 		478305F51C406F8B00F03E11 /* Flixs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flixs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		478305F81C406F8B00F03E11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		478305FA1C406F8B00F03E11 /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				478305F81C406F8B00F03E11 /* AppDelegate.swift */,
+				4741C60E1C487A7600AAE4E2 /* TopRatedMoviesViewController.swift */,
 				478305FA1C406F8B00F03E11 /* MoviesViewController.swift */,
 				478306291C40760700F03E11 /* MovieCollectionViewCell.swift */,
 				47DAD4FD1C45D64500BD608B /* DetailViewController.swift */,
@@ -171,6 +174,7 @@
 				478305F31C406F8B00F03E11 /* Resources */,
 				370D98075584BECF7CCD0216 /* Embed Pods Frameworks */,
 				A9E3209AF5A0A058E2F1CEAD /* Copy Pods Resources */,
+				4741C6101C4927B200AAE4E2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -318,6 +322,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		4741C6101C4927B200AAE4E2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
 		A9E3209AF5A0A058E2F1CEAD /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -340,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4741C60F1C487A7600AAE4E2 /* TopRatedMoviesViewController.swift in Sources */,
 				478306011C406F8B00F03E11 /* Flixs.xcdatamodeld in Sources */,
 				478305FB1C406F8B00F03E11 /* MoviesViewController.swift in Sources */,
 				47DAD4FE1C45D64500BD608B /* DetailViewController.swift in Sources */,
