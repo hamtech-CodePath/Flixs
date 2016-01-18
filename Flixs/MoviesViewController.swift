@@ -30,7 +30,7 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
         self.moviesTimeline.insertSubview(refresh, atIndex: 0)
         
         //hide timeline intiallly for loadingState
-         self.moviesTimeline.alpha = 0 //present moviesTimeline
+        self.moviesTimeline.alpha = 0 //present moviesTimeline
         
         self.startLoader()
         self.getMovies()
@@ -86,12 +86,11 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
                         data, options:[]) as? NSDictionary {
                             print("response: \(responseDictionary)")
                             self.movies = responseDictionary["results"] as? [NSDictionary]
-                            self.moviesTimeline.reloadData()
+                            self.moviesTimeline.reloadData() 
                             self.delay(5, closure: { () -> () in
                                 self.loader?.stopAnimating()
                                 self.moviesTimeline.alpha = 1 //present moviesTimeline
                             })
-                            
                     }
                 }
                     
