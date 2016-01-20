@@ -13,15 +13,21 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var poster: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var Overview: UILabel!
+    @IBOutlet weak var filterView: UIView!
+    
     var movie: NSDictionary!
+    @IBOutlet weak var scrollView: UIScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(movie)
+        
+        //setup scrollView
+        scrollView.contentSize = CGSize(width: scrollView.frame.size.width, height: filterView.frame.origin.y + filterView.frame.size.height)
+        
         // Do any additional setup after loading the
         movieTitle.text = movie["title"] as? String
         Overview.text = movie["overview"]as? String
         if let posterPath = movie["poster_path"] as? String {
-            let baseURL = "http://image.tmdb.org/t/p/w500"
+            let baseURL = "http://image.tmdb.org/t/p/original"
             let imageURL = NSURL(string: baseURL + posterPath)
             poster.setImageWithURL(imageURL!)
         }
@@ -33,4 +39,9 @@ class DetailViewController: UIViewController {
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {}
+    
+    @IBAction func screenSwiped(sender: AnyObject) {
+        print(sender)
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 }

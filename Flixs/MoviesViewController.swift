@@ -24,6 +24,7 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
         self.moviesTimeline.delegate = self
         self.moviesTimeline.dataSource = self
         
+        
         //setup refresh to reload
         refresh = UIRefreshControl()
         refresh.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
@@ -47,16 +48,16 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MovieCell", forIndexPath: indexPath) as! MovieCollectionViewCell
         
         let movie = movies![indexPath.row]
-        let title = movie["title"] as! String
         if let posterPath = movie["poster_path"] as? String {
-            
-            let baseURL = "http://image.tmdb.org/t/p/w500"
+            let baseURL = "http://image.tmdb.org/t/p/original"
             let imageURL = NSURL(string: baseURL + posterPath)
             cell.Image.setImageWithURL(imageURL!)
+            cell.Popularity.text = String(movie["popularity"] as! Int)
+            print("TESTINGNKLFJJLF")
+            print(movie["vote_count"] as? Int)
+            cell.Vote.text = String(movie["vote_count"] as! Int)
         }
-
-        cell.Title.text = title
-        cell.About.text = movie["overview"] as? String
+        
         return cell
     }
     
