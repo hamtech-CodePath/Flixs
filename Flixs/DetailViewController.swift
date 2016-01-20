@@ -31,6 +31,7 @@ class DetailViewController: UIViewController {
             let imageURL = NSURL(string: baseURL + posterPath)
             poster.setImageWithURL(imageURL!)
         }
+
     }
     
     override func didReceiveMemoryWarning() {

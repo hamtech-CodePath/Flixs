@@ -56,7 +56,27 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
             print("TESTINGNKLFJJLF")
             print(movie["vote_count"] as? Int)
             cell.Vote.text = String(movie["vote_count"] as! Int)
+            
+            cell.heart.animationType = "SqueezeInRight"
+            cell.graph.animationType = "SqueezeInLeft"
+            cell.graph.animate()
+            cell.heart.animate()
+            
+            //apply shadow to cell
+            cell.layer.masksToBounds = false
+            cell.layer.shadowColor = UIColor.blackColor().CGColor
+            cell.layer.shadowOffset = CGSizeMake(0,4)
+            cell.layer.shadowRadius = 4
+            cell.layer.shadowOpacity = 0.5
         }
+        
+        //setup add workoutBtn
+        //self.workoutBtn.layer.cornerRadius = workoutBtn.bounds.size.width/2
+//        self.workoutBtn.layer.masksToBounds = false
+//        self.workoutBtn.layer.shadowColor = UIColor.blackColor().CGColor
+//        self.workoutBtn.layer.shadowOffset = CGSizeMake(4,4)
+//        self.workoutBtn.layer.shadowRadius = 4
+//        self.workoutBtn.layer.shadowOpacity = 0.5
         
         return cell
     }

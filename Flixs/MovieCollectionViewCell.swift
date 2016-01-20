@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import IBAnimatable
 
 class MovieCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var Image: UIImageView!
+    @IBOutlet weak var Image: AnimatableImageView!
     @IBOutlet weak var Popularity: UILabel!
     @IBOutlet weak var Vote: UILabel!
+    @IBOutlet weak var heart: AnimatableImageView!
     
+    @IBOutlet weak var graph: AnimatableImageView!
 }

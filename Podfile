@@ -6,6 +6,7 @@
 target 'Flixs' do
   pod 'AFNetworking'
   pod 'SWActivityIndicatorView'
+  pod 'IBAnimatable'
 end
 
 target 'FlixsTests' do
