@@ -42,10 +42,20 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.getMovies()
+    }
+    
     //UICollectionView - Delegates and DataSource
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MovieCell", forIndexPath: indexPath) as! MovieCollectionViewCell
+        
+        //set background
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor.blackColor()
+        cell.selectedBackgroundView = backgroundView
         
         let movie = movies![indexPath.row]
         if let posterPath = movie["poster_path"] as? String {
@@ -87,6 +97,15 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
         } else {    //return 0
             return 0
         }
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        // Use a red color when the user selects the cell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MovieCell", forIndexPath: indexPath) as! MovieCollectionViewCell
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor.redColor()
+        cell.selectedBackgroundView = backgroundView
     }
     
     func getMovies() {
