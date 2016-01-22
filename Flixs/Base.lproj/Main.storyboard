@@ -119,6 +119,7 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.31372549019607843" green="0.70980392156862748" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Flixs" id="J47-PL-Iwu"/>
                     <connections>
@@ -202,13 +203,14 @@
         <scene sceneID="jPn-4t-7jS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hls-Gb-Saz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Now Playing" id="ICc-JQ-KgX"/>
+                    <tabBarItem key="tabBarItem" title="Now Playing" image="Play" id="ICc-JQ-KgX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RfP-Uy-aof">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.1450980392" green="0.78039215689999997" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.1450980392" green="0.78039215689999997" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.32622266692599644" green="0.73821773473352104" blue="0.58374381304738154" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -227,7 +229,9 @@
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Bm0-bf-j3f">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.16889255619521526" green="0.51513671875" blue="0.049042923666165909" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.2805337772" green="0.71128694120000002" blue="0.59279850970000003" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="hls-Gb-Saz" kind="relationship" relationship="viewControllers" id="nSh-xl-g3Z"/>
@@ -258,7 +262,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCell" id="Ajh-3Z-Sgd" customClass="MovieCollectionViewCell" customModule="Flixs" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="148" height="224"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="148" height="224"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="148" height="224"/>
@@ -435,7 +439,7 @@
         <scene sceneID="6kW-9j-ijQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a6A-MQ-PYN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Top Rated" id="25H-5b-lDr"/>
+                    <tabBarItem key="tabBarItem" title="Top Rated" image="Film" id="25H-5b-lDr"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Usn-dj-G0R"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="e0z-7P-Mwu">
@@ -456,6 +460,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Film" width="20" height="20"/>
+        <image name="Play" width="17" height="18"/>
         <image name="graph1" width="24" height="24"/>
         <image name="ic_favorite_white" width="24" height="24"/>
     </resources>

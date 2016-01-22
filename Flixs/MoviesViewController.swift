@@ -32,6 +32,7 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         //hide timeline intiallly for loadingState
         self.moviesTimeline.alpha = 0 //present moviesTimeline
+
         
         self.startLoader()
         self.getMovies()
@@ -79,14 +80,6 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
             cell.layer.shadowRadius = 4
             cell.layer.shadowOpacity = 0.5
         }
-        
-        //setup add workoutBtn
-        //self.workoutBtn.layer.cornerRadius = workoutBtn.bounds.size.width/2
-//        self.workoutBtn.layer.masksToBounds = false
-//        self.workoutBtn.layer.shadowColor = UIColor.blackColor().CGColor
-//        self.workoutBtn.layer.shadowOffset = CGSizeMake(4,4)
-//        self.workoutBtn.layer.shadowRadius = 4
-//        self.workoutBtn.layer.shadowOpacity = 0.5
         
         return cell
     }

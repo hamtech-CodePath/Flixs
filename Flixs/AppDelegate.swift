@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import DynamicColor
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor(hexString: "#4BBC98") ], forState: .Selected)
+        
+        UITabBar.appearance().tintColor = UIColor(hexString: "#4BBC98")
+        
         return true
     }
 
