@@ -208,7 +208,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RfP-Uy-aof">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.1450980392" green="0.78039215689999997" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.32549019607843138" green="0.73725490196078436" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.32622266692599644" green="0.73821773473352104" blue="0.58374381304738154" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
