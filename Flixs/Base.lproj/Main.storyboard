@@ -202,7 +202,7 @@
         <!--Now Playing-->
         <scene sceneID="jPn-4t-7jS">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hls-Gb-Saz" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MoviesNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="hls-Gb-Saz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Now Playing" image="Play" id="ICc-JQ-KgX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RfP-Uy-aof">
@@ -262,7 +262,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCell" id="Ajh-3Z-Sgd" customClass="MovieCollectionViewCell" customModule="Flixs" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="148" height="224"/>
+                                        <rect key="frame" x="0.0" y="64" width="148" height="224"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="148" height="224"/>
@@ -438,7 +438,7 @@
         <!--Top Rated-->
         <scene sceneID="6kW-9j-ijQ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a6A-MQ-PYN" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TopRatedNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="a6A-MQ-PYN" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Top Rated" image="Film" id="25H-5b-lDr"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Usn-dj-G0R"/>
